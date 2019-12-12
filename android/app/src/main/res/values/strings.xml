@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="app_name">messaging_app</string>
+<string name="facebook_app_id">2539783299584200</string>
+<string name="fb_login_protocol_scheme">fb2539783299584200</string>
+<string name="default_notification_channel_id">Varsayılan Deger</string>
+</resources>
