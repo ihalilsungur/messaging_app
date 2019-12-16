@@ -31,7 +31,7 @@ Future<void> myBackgroundMessageHandler(Map<String, dynamic> message) {
   }
   */
 
-  // Or do other work.
+ 
   return Future<void>.value();
 }
 

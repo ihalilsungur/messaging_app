@@ -54,8 +54,6 @@ class _TalkPageState extends State<TalkPage> {
                 children: <Widget>[
                   _messageLists(),
                   _enterNewTheMassage(),
-                  // _buildMesajListesi(),
-                  // _buildYeniMesajGir(),
                 ],
               ),
             ),

@@ -17,13 +17,8 @@ class SignInPage extends StatefulWidget {
 }
 
 class _SignInPageState extends State<SignInPage> {
-  void _loginGuest(context) async {
-    final _userViewModel = Provider.of<UserViewModel>(context);
-    User _user = await _userViewModel.signInAnonymously();
-    if (_user != null)
-      debugPrint(
-          "anonymously oturumu açan genel Kullanıcı Id: " + _user.userId);
-  }
+
+
 
   void _loginWithGoogle(BuildContext context) async {
     final _userViewModel = Provider.of<UserViewModel>(context);
@@ -150,6 +145,8 @@ class _SignInPageState extends State<SignInPage> {
                       onPressed: () => _loginWithEmailAndPassword(context),
                     ),
                   ),
+
+                  /*
                   //Misafir ile giriş yap butonu
                   Container(
                     margin: EdgeInsets.only(left: 10, top: 10, right: 10),
@@ -169,6 +166,7 @@ class _SignInPageState extends State<SignInPage> {
                       onPressed: () => _loginGuest(context),
                     ),
                   ),
+                  */
                 ],
               ),
             ),

@@ -4,20 +4,12 @@ import 'package:messaging_app/models/user.dart';
 import 'package:messaging_app/services/auth_base_user_service/auth_base_user_service.dart';
 
 
-
-
 class FakeAuthhenticationService implements AuthBaseUserService {
   String userId = "1231231231234234234";
   String email ="sungur@gmail.com";
   @override
   Future<User> currentUser() async {
     return await Future.value(User(userId: userId,email: email));
-  }
-
-  @override
-  Future<User> signInAnonymously() async {
-    return await Future.delayed(
-        Duration(seconds: 2), () => User(userId: userId ,email: email));
   }
 
   @override

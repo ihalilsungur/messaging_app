@@ -37,20 +37,6 @@ class UserRepositoryImpl implements UserRepository {
     }
   }
 
-  @override
-  Future<User> signInAnonymously() async {
-    if (appMode == AppMode.DEBUG) {
-      return await _fakeAuthhenticationService.signInAnonymously();
-    } else {
-      User _user = await _firebaseAuthService.signInAnonymously();
-      bool result = await _firestoreDbService.saveUser(_user);
-      if (result == true) {
-        return _user;
-      } else {
-        return null;
-      }
-    }
-  }
 
   @override
   Future<bool> signOut() async {

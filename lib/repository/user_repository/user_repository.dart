@@ -4,7 +4,6 @@ import 'package:messaging_app/models/user.dart';
 
 abstract class UserRepository {
   Future<User> currentUser();
-  Future<User> signInAnonymously();
   Future<bool> signOut();
   Future<User> signInWithGoogle();
   Future<User> signInWithFacebook();

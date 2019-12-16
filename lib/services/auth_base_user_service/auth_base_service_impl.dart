@@ -27,16 +27,6 @@ class AuthBaseServiceImpl implements AuthBaseUserService {
     return User(userId: user.uid, email: user.email);
   }
 
-  @override
-  Future<User> signInAnonymously() async {
-    try {
-      AuthResult result = await _firebaseAuth.signInAnonymously();
-      return _userFromFirebase(result.user);
-    } catch (e) {
-      print("signInanonymously metodunda bir hata oluştu : " + e.toString());
-      return null;
-    }
-  }
 
   @override
   Future<bool> signOut() async {

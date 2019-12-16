@@ -45,22 +45,6 @@ class UserViewModel with ChangeNotifier implements AuthBaseServiceImpl {
   }
 
   @override
-  Future<User> signInAnonymously() async {
-    try {
-      viewState = ViewState.Busy;
-      _user = await _userRepositoryImpl.signInAnonymously();
-      return _user;
-    } catch (e) {
-      print(
-          "viewmodel'in içindeki User_View_modelde signInAnonymously() metodunda oluşan hata : " +
-              e.toString());
-      return null;
-    } finally {
-      viewState = ViewState.Idle;
-    }
-  }
-
-  @override
   Future<bool> signOut() async {
     try {
       viewState = ViewState.Busy;

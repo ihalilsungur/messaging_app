@@ -1,8 +1,6 @@
 
-import 'package:firebase_admob/firebase_admob.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:messaging_app/admob_operations/admob_operations.dart';
 import 'package:messaging_app/app/tab_items.dart';
 
 //bu sinif homepage sayfasindaki menunun nasıl gorunecegini ayarlar
@@ -26,19 +24,19 @@ class MyCustomBottomNavigation extends StatefulWidget {
 }
 
 class _MyCustomBottomNavigationState extends State<MyCustomBottomNavigation> {
-  BannerAd _bannerAd;
+ // BannerAd _bannerAd;
   
   @override
   void initState() {
     super.initState();
-    AdmobOperations.admodInitialize();
-    _bannerAd = AdmobOperations.buildBannerAd();
+   // AdmobOperations.admodInitialize();
+   // _bannerAd = AdmobOperations.buildBannerAd();
     //_bannerAd.load();
   }
 
   @override
   void dispose() {
-    _bannerAd.dispose();
+    //_bannerAd.dispose();
     super.dispose();
   }
 
