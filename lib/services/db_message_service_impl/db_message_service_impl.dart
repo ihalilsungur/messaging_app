@@ -11,6 +11,7 @@ class DbMessageServiceImpl implements DbMessageService {
         .collection("talks")
         .document(currentUserId + "--" + chatUserId)
         .collection("messages")
+        .where("ownerOfTheConversation",isEqualTo: currentUserId)
         .orderBy("date", descending: true)
         .limit(1)
         .snapshots();
@@ -46,6 +47,7 @@ class DbMessageServiceImpl implements DbMessageService {
     });
 
     _messageToSaveMapStructure.update("isFromMe", (value) => false);
+    _messageToSaveMapStructure.update("ownerOfTheConversation", (value)=>messageToSave.toWho);
 
     await _firestoreDbMessage
         .collection("talks")

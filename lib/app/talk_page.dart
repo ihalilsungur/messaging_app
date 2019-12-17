@@ -132,10 +132,12 @@ class _TalkPageState extends State<TalkPage> {
               onPressed: () async {
                 if (_messageControllerText.text.trim().length > 0) {
                   Message _messageToSave = new Message(
-                      fromWho: _chatViewModel.currentUser.userId,
-                      toWho: _chatViewModel.chatUser.userId,
-                      isFromMe: true,
-                      message: _messageControllerText.text);
+                    fromWho: _chatViewModel.currentUser.userId,
+                    toWho: _chatViewModel.chatUser.userId,
+                    isFromMe: true,
+                    ownerOfTheConversation: _chatViewModel.currentUser.userId,
+                    message: _messageControllerText.text,
+                  );
                   var _result = await _chatViewModel.saveMessage(
                       _messageToSave, _chatViewModel.currentUser);
                   if (_result) {

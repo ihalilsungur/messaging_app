@@ -17,21 +17,14 @@ import 'package:path_provider/path_provider.dart';
 
 FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
+
 Future<void> myBackgroundMessageHandler(Map<String, dynamic> message) {
   if (message.containsKey('data')) {
     // Handle data message
     final dynamic data = message['data'];
     print("Arka planda gelen data : " + message["data"].toString());
     NotificationHandler._showNotification(message);
-  }
-/*
-  if (message.containsKey('notification')) {
-    // Handle notification message
-    final dynamic notification = message['notification'];
-  }
-  */
-
- 
+  } 
   return Future<void>.value();
 }
 
@@ -65,19 +58,17 @@ class NotificationHandler {
 
     _fcm.configure(
       onMessage: (Map<String, dynamic> message) async {
-        print("onMessage Tetiklendi: $message");
+       // print("onMessage Tetiklendi: $message");
         _showNotification(message);
       },
       onBackgroundMessage: myBackgroundMessageHandler,
       onLaunch: (Map<String, dynamic> message) async {
       //  print("onLaunch Tetiklendi : $message");
-        // _navigateToItemDetail(message);
-       _showNotification(message);
+       //_showNotification(message);
       },
       onResume: (Map<String, dynamic> message) async {
         //print("onResume Tetiklendi : $message");
-        //  _navigateToItemDetail(message);
-         _showNotification(message);
+         //_showNotification(message);
       },
     );
   }

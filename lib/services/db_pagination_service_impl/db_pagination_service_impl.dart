@@ -5,13 +5,12 @@ import 'package:messaging_app/models/user.dart';
 import 'package:messaging_app/services/db_pagination_service/db_pagination_service.dart';
 
 class DbPaginationServiceImpl implements DbPaginationService {
-    final Firestore _firestore = Firestore.instance;
+  final Firestore _firestore = Firestore.instance;
   @override
   Future<List<Talk>> getAllConversations(String currentUserId) async {
     QuerySnapshot _querySnapshot = await Firestore.instance
         .collection("talks")
         .where("talker", isEqualTo: currentUserId)
-       // .orderBy("dateMessageToSent", descending: true)
         .orderBy("dateMessageToSent", descending: true)
         .getDocuments();
 
@@ -68,6 +67,7 @@ class DbPaginationServiceImpl implements DbPaginationService {
           .collection("talks")
           .document(currentUserId + "--" + chatUserId)
           .collection("messages")
+          .where("ownerOfTheConversation", isEqualTo: currentUserId)
           .orderBy("date", descending: true)
           .limit(messageCountPerPage)
           .getDocuments();
@@ -75,8 +75,9 @@ class DbPaginationServiceImpl implements DbPaginationService {
       print("Sonra getirilen Messajlar");
       _querySnapshot = await Firestore.instance
           .collection("talks")
-          .document(currentUserId + "--" + chatUserId)
+          .document(currentUserId + "--" + currentUserId)
           .collection("messages")
+          .where("ownerOfTheConversation", isEqualTo: currentUserId)
           .orderBy("date", descending: true)
           .startAfter([bringedTheLastMessage.date])
           .limit(messageCountPerPage)

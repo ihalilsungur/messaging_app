@@ -5,9 +5,10 @@ class Message {
   final String toWho; //kime
   final bool isFromMe; //benden mi
   final String message; //mesajın içeriği
+  final String ownerOfTheConversation; //konuşmanın sahibi
   final Timestamp date; //tarihi
 
-  Message({this.fromWho, this.toWho, this.isFromMe, this.message, this.date});
+  Message({this.fromWho, this.toWho, this.isFromMe, this.message,this.ownerOfTheConversation, this.date});
 
   Map<String, dynamic> toMap() {
     return {
@@ -15,6 +16,7 @@ class Message {
       "toWho": toWho,
       "isFromMe": isFromMe,
       "message": message,
+      "ownerOfTheConversation" :ownerOfTheConversation,
       "date": date ?? FieldValue.serverTimestamp()
     };
   }
@@ -24,6 +26,7 @@ class Message {
   toWho = map["toWho"],
   isFromMe = map["isFromMe"],
   message = map["message"],
+  ownerOfTheConversation = map["ownerOfTheConversation"],
   date = map["date"] ;
 
  

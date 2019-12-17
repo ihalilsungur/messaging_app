@@ -5,7 +5,6 @@ class User {
   final String userId;
   String email;
   String username;
-
   String profilePhotoUrl;
   DateTime createdAt;
   DateTime updatedAt;
@@ -28,7 +27,7 @@ class User {
       "userId": userId,
       "email": email,
       "username": username ?? email.substring(0, email.indexOf("@")),
-      "profilePhotoUrl": profilePhotoUrl ?? "",
+      "profilePhotoUrl": profilePhotoUrl ?? "https://images.hdqwalls.com/wallpapers/bthumb/lion-roaring-on-top-of-mountain-5k-k7.jpg",
       "createdAt": createdAt ?? FieldValue.serverTimestamp(),
       "updatedAt": updatedAt ?? FieldValue.serverTimestamp(),
       "level": level ?? 1
